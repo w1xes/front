@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import Light from "./Light";
 import StatsBar from "./StatsBar";
+import "./TrafficLights.css";
 import { COLORS } from "./constants";
 
 const TrafficLights = ({ direction = "vertical" }) => {
@@ -24,17 +25,7 @@ const TrafficLights = ({ direction = "vertical" }) => {
 
   return (
     <div className="traffic-lights">
-      <div
-        style={{
-          display: "flex",
-          flexDirection: orientation === "horizontal" ? "row" : "column",
-          gap: 10,
-          padding: 10,
-          backgroundColor: "#333",
-          borderRadius: 10,
-          width: "fit-content",
-        }}
-      >
+      <div className={`traffic-lights__panel traffic-lights__panel--${orientation}`}>
         {COLORS.map((color) => (
           <Light
             key={color}
@@ -60,3 +51,4 @@ TrafficLights.propTypes = {
 };
 
 export default TrafficLights;
+

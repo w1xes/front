@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { COLORS } from "./constants";
+import "./StatsBar.css";
 
 const ORIENTATION_LABELS = {
   vertical: "Вертикальна орієнтація",
@@ -18,7 +19,7 @@ const StatsBar = ({
       <ul className="stats-list">
         {COLORS.map((color) => (
           <li key={color}>
-            <span className="stats-dot" style={{ backgroundColor: color }} />
+            <span className="stats-dot" style={{ "--dot-color": color }} />
             {color}: <strong>{counts[color]}</strong>
           </li>
         ))}
@@ -50,3 +51,4 @@ StatsBar.propTypes = {
 };
 
 export default StatsBar;
+
