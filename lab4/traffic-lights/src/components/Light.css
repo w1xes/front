@@ -1,0 +1,42 @@
+.light {
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  opacity: 0.28;
+  cursor: pointer;
+  filter: saturate(0.55);
+  transition:
+    opacity 350ms ease,
+    filter 350ms ease,
+    transform 350ms ease,
+    box-shadow 350ms ease;
+}
+
+.light--active {
+  transform: scale(1.06);
+  border-color: #fff;
+  opacity: 1;
+  filter: saturate(1);
+  box-shadow: 0 0 18px 5px var(--light-color);
+}
+
+.light:disabled {
+  cursor: not-allowed;
+}
+
+.light:focus-visible,
+.traffic-lights button:focus-visible {
+  outline: 3px solid #3978e8;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light,
+  .traffic-lights__controls button,
+  .stats-bar button {
+    transition: none;
+  }
+}
